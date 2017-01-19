@@ -6,26 +6,26 @@ import LocateMeButton from '../components/LocateMeButton';
 class FindNearMe extends Component {
   constructor(props) {
     super(props);
-
-    this.handlePress = this.handlePress.bind(this);
   }
+
   static route = {
     navigationBar: {
       visible: false,
     },
   }
-  handleGeolocationSuccess(position) {
+
+  handleGeolocationSuccess = (position) => {
     const { coords } = position;
     console.log('latitude', coords.latitude);
     console.log('longitude', coords.longitude);
 
   }
 
-  handleGeolocationError(error) {
+  handleGeolocationError = (error) => {
     console.error(error.message);
   }
 
-  handlePress() {
+  handlePress = () => {
     navigator.geolocation.getCurrentPosition(
       this.handleGeolocationSuccess,
       this.handleGeolocationError,
